@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>யாதுமாகி</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Arima+Madurai:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#E6DDF4;--card:#F4EFFA;--ink:#2A1740;--mute:#4F4363;--line:#CDBFE3;--acc:#6D3BB0;--accT:#5B2D99;--hd:#4B2A85;--out:#D5C0F0;--in:#F7F3FC;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B1028;--card:#2A1740;--ink:#F3ECF8;--mute:#C9BDD8;--line:#45305F;--acc:#8A5BD0;--accT:#C9A8FF;--hd:#2A1740;--out:#4B2A85;--in:#2A1740;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1B1028;--card:#2A1740;--ink:#F3ECF8;--mute:#C9BDD8;--line:#45305F;--acc:#8A5BD0;--accT:#C9A8FF;--hd:#2A1740;--out:#4B2A85;--in:#2A1740;color-scheme:dark}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans Tamil','Latha',sans-serif;max-width:560px;margin:0 auto;position:relative;overflow:hidden}
+#w{position:absolute;inset:0;z-index:5;background:radial-gradient(circle at 50% 28%,#4B2A85 0,#2A1740 60%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:28px;text-align:center}
+#app{height:100%;display:none;flex-direction:column}
+.em{width:150px;height:150px}.pet{transform-origin:60px 60px;transform-box:view-box;animation:spin 40s linear infinite}
+.dr{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s .5s ease forwards}
+.ttl{font-family:'Arima Madurai','Noto Sans Tamil',serif;font-weight:900;font-size:58px;display:flex;justify-content:center;line-height:1.35}
+.ttl span{background:linear-gradient(100deg,#F2B84B,#FF8FC0,#B79CFF,#6FE3D8,#F2B84B);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 14px rgba(183,156,255,.5));animation:rise .9s cubic-bezier(.2,.9,.3,1.3) both,shine 5s linear infinite,float 4s ease-in-out infinite;animation-delay:calc(var(--i)*.2s),0s,calc(var(--i)*.2s + 1s)}
+@keyframes rise{from{opacity:0;transform:translateY(46px) scale(.5) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:300% 0}}@keyframes float{50%{transform:translateY(-7px)}}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.ttl span,.pet{animation:none}.dr{animation:none;stroke-dashoffset:0}}
+.tag{color:#F2B84B;font-size:16px}.wn{font-size:13px;color:#D8CDE6}
+#w input{width:100%;max-width:320px;height:52px;border-radius:14px;border:1px solid #6B5486;background:#3A2556;color:#fff;font:inherit;font-size:18px;padding:0 16px}
+header{background:var(--hd);color:#fff;padding:12px 18px;display:flex;align-items:baseline;gap:10px}
+header b{font-family:'Arima Madurai','Noto Sans Tamil',serif;font-size:24px}header span{font-size:13px;opacity:.85}
+#v{flex:1;overflow-y:auto;padding:10px 14px;background:radial-gradient(circle at 20% 10%,rgba(160,120,220,.18),transparent 45%),var(--bg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;display:flex;gap:12px}
+.card>div:last-child{flex:1;min-width:0;overflow-wrap:anywhere}
+.av{width:44px;height:44px;border-radius:22px;color:#fff;font-weight:700;font-size:19px;display:flex;align-items:center;justify-content:center;flex:none}
+.who{font-weight:600;font-size:14px}.t{font-size:11px;color:var(--mute)}
+.b{max-width:82%;width:fit-content;padding:7px 10px 5px;border-radius:12px 12px 12px 3px;margin-bottom:6px;background:var(--in);border:1px solid var(--line);overflow-wrap:anywhere}
+.b.me{margin-left:auto;background:var(--out);border-radius:12px 12px 3px 12px}.b .t{text-align:right;margin-top:2px}
+.b img{display:block;max-width:100%;border-radius:8px;margin:2px 0}.b audio{max-width:100%;height:40px}
+.b a{color:var(--accT);font-weight:600}.sep{text-align:center;margin:10px 0}.sep span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:3px 12px;font-size:12px;color:var(--mute)}
+.note{font-size:12px;color:var(--mute);margin:4px 4px 12px}
+#c{position:relative;padding:8px 10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--bg);border-top:1px solid var(--line)}
+input,textarea{flex:1;min-width:0;min-height:46px;border:1px solid var(--line);border-radius:23px;padding:0 16px;font:inherit;background:var(--in);color:var(--ink)}
+textarea{border-radius:14px;padding:10px 14px;min-height:64px}
+button{min-height:44px;font:inherit}.go{border:0;border-radius:23px;background:var(--acc);color:#fff;padding:0 18px;font-weight:600}
+.alt{border:1px solid var(--line);border-radius:23px;background:var(--in);color:var(--ink);padding:0 16px}
+.ic{width:46px;height:46px;min-height:46px;border-radius:23px;border:0;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.ic.q{background:none;color:var(--accT)}.menu[hidden]{display:none}.menu{position:absolute;bottom:62px;left:10px;display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;z-index:3}
+.rec{display:flex;gap:10px;align-items:center;width:100%}.rec span{flex:1;font-weight:600;color:var(--accT)}
+.diag{position:fixed;left:12px;right:12px;top:calc(env(safe-area-inset-top,0px) + 8px);max-width:536px;margin:0 auto;max-height:80%;overflow:auto;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;z-index:10;box-shadow:0 8px 28px rgba(0,0,0,.35)}.diag pre{white-space:pre-wrap;font:12px/1.5 monospace;margin:8px 0}.toast{position:fixed;top:calc(env(safe-area-inset-top,0px) + 8px);left:12px;right:12px;max-width:536px;margin:0 auto;background:var(--hd);color:#fff;padding:12px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:9;animation:rise .4s both}.hb{margin-left:auto;min-height:36px;padding:0 12px;font-size:12px;align-self:center}
+nav{display:flex;background:var(--hd)}nav button{flex:1;border:0;background:none;color:#D8CDE6;font-size:13px}nav button.on{color:#fff;font-weight:700;box-shadow:inset 0 -3px #F2B84B}
+.ml{display:block;margin-top:6px;color:var(--accT);font-weight:600}#w{overflow-y:auto}#w .em{width:110px;height:110px}.card .t button{vertical-align:middle}header{flex-wrap:wrap;gap:6px 10px}</style>
+</head>
+<body>
+<section id="w">
+<svg class="em" viewBox="0 0 120 120" role="img" aria-label="ஆண் பெண் இணைந்த சின்னம்">
+<defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="20" y1="30" x2="100" y2="110"><stop offset="0" stop-color="#5BCEFA"/><stop offset=".5" stop-color="#F5A9B8"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
+<g class="pet" opacity=".3"><ellipse cx="60" cy="60" rx="9" ry="56" fill="#C2306B"/><ellipse cx="60" cy="60" rx="9" ry="56" fill="#F2B84B" transform="rotate(45 60 60)"/><ellipse cx="60" cy="60" rx="9" ry="56" fill="#3FB5B0" transform="rotate(90 60 60)"/><ellipse cx="60" cy="60" rx="9" ry="56" fill="#9B7BE0" transform="rotate(135 60 60)"/></g>
+<g fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<circle class="dr" pathLength="1" cx="60" cy="68" r="19"/><path class="dr" pathLength="1" d="M74 54L96 32M82 32H96V46"/><path class="dr" pathLength="1" d="M46 54L26 34M25 47L39 33"/><path class="dr" pathLength="1" d="M60 87V112M50 100H70"/></g></svg>
+<div class="ttl" aria-label="யாதுமாகி"><span style="--i:0">யா</span><span style="--i:1">து</span><span style="--i:2">மா</span><span style="--i:3">கி</span></div>
+<div class="tag">யாதும் ஊரே, யாவரும் கேளிர்</div>
+<input id="nk" placeholder="புனைப்பெயர்" aria-label="புனைப்பெயர்" autocomplete="username"><input id="pw" type="password" placeholder="கடவுச்சொல் (6+ எழுத்து)" aria-label="கடவுச்சொல்" autocomplete="current-password"><input id="iv" placeholder="அழைப்புக் குறியீடு (புதியவர்களுக்கு மட்டும்)" aria-label="அழைப்புக் குறியீடு">
+<button class="go" id="enter" style="min-width:200px;height:52px;font-size:17px">நுழை</button>
+<div class="wn">உங்கள் புனைப்பெயர் மட்டுமே தெரியும்</div>
+</section>
+<div id="app"><header><b>யாதுமாகி</b><span id="ht"></span><button class="alt hb" id="bn">அறிவிப்பு</button><button class="alt hb" id="bs" style="margin-left:6px">இணைப்பு</button><button class="alt hb" id="bo" style="margin-left:6px">வெளியேறு</button></header><main id="v"></main><div id="c"></div><nav id="n"></nav></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+let SUPABASE_URL = 'PASTE_URL_HERE', SUPABASE_KEY = 'PASTE_ANON_KEY_HERE';
+try {
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (h.get('u') && h.get('k')) { localStorage.setItem('yg_cfg', JSON.stringify({ u: h.get('u'), k: h.get('k') })); history.replaceState(null, '', location.pathname + location.search); }
+  const c = JSON.parse(localStorage.getItem('yg_cfg') || 'null'); if (c && c.u && c.k) { SUPABASE_URL = c.u; SUPABASE_KEY = c.k; }
+} catch (e) {}
+(async () => {
+const $ = s => document.querySelector(s);
+const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const ICON = { clip: '<path d="M21 12l-8.5 8.5a5 5 0 01-7-7L14 5a3.5 3.5 0 015 5l-8.5 8.5a2 2 0 01-3-3L15 8"/>', mic: '<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/>', send: '<path d="M4 12l16-8-6 17-3-7z"/>' };
+const ic = (k, cls) => { const b = el('button', 'ic ' + (cls || '')); b.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[k] + '</svg>'; return b; };
+const toast = t => { const d = el('div', 'toast', t); d.onclick = () => d.remove(); document.body.append(d); setTimeout(() => d.remove(), 5000); };
+const beep = () => { try { const a = new (window.AudioContext || window.webkitAudioContext)(), o = a.createOscillator(), g = a.createGain(); o.frequency.value = 880; g.gain.value = .08; o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime + .15); } catch (e) {} };
+const eb = $('#enter'), nk = $('#nk'), pwi = $('#pw'), iv = $('#iv');
+if (SUPABASE_URL.startsWith('PASTE')) {
+  [nk, pwi, iv].forEach(i => { i.hidden = true; });
+  const cu = el('input'), ck = el('input'); cu.placeholder = 'Supabase Project URL'; ck.placeholder = 'anon public key'; cu.setAttribute('aria-label', cu.placeholder); ck.setAttribute('aria-label', ck.placeholder); cu.autocapitalize = ck.autocapitalize = 'off'; eb.before(cu, ck); eb.textContent = 'சேமி';
+  eb.onclick = () => { const u = cu.value.trim().replace(/\/$/, ''), k = ck.value.trim(); if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(u) || k.length < 40) return toast('URL அல்லது key சரியில்லை. Supabase > Project Settings > API-ல் பாருங்கள்.'); localStorage.setItem('yg_cfg', JSON.stringify({ u, k })); location.reload(); };
+  return;
+}
+if (!window.supabase) { eb.onclick = () => toast('இணைய இணைப்பைச் சரிபார்த்து page-ஐ மீண்டும் ஏற்றுங்கள்.'); return; }
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const COL = ['#8E3FA8', '#1F6F6F', '#B0306A', '#A35A00', '#3B5BA8'], names = {}, D = { posts: [], events: [], rsvps: [] }, unread = { msg: 0, status: 0, feed: 0, events: 0 };
+let me = null, tab = 'msg', entered = false, subscribed = false, rec = null, chunks = [], t0 = 0, tmr = 0, last = '';
+const nm = id => names[id] || 'நண்பர்', col = id => COL[[...String(id)].reduce((a, c) => a + c.charCodeAt(0), 0) % 5], mine = x => x.user_id === me;
+const tm = ts => new Date(ts).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+const dt = ts => new Date(ts).toLocaleString('ta-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+const day = ts => { const d = new Date(ts), n = new Date(); return d.toDateString() === n.toDateString() ? 'இன்று' : d.toLocaleDateString('ta-IN', { day: 'numeric', month: 'long' }); };
+const fmt = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+const avatar = id => { const a = el('div', 'av', [...nm(id)][0] || '?'); a.style.background = col(id); return a; };
+
+async function loadMembers() { const { data } = await sb.from('members').select('user_id,name'); (data || []).forEach(m => { names[m.user_id] = m.name; }); }
+async function loadPosts() { const { data, error } = await sb.from('posts').select('*').order('created_at', { ascending: false }).limit(300); if (error) toast('ஏற்ற முடியவில்லை: ' + error.message); D.posts = data || []; }
+async function loadEvents() { const [a, b] = await Promise.all([sb.from('events').select('*'), sb.from('rsvps').select('*')]); D.events = a.data || []; D.rsvps = b.data || []; }
+async function post(kind, o) { const { data, error } = await sb.from('posts').insert({ kind, ...o }).select().single(); if (error) { toast('அனுப்ப முடியவில்லை: ' + error.message); return; } if (!D.posts.some(y => y.id === data.id)) { D.posts.unshift(data); list(); } }
+
+async function shrink(f) {
+  if (!/^image\/(jpeg|png|webp|heic|heif)/.test(f.type)) return f;
+  try { const bm = await createImageBitmap(f), sc = Math.min(1, 1600 / Math.max(bm.width, bm.height)), cv = document.createElement('canvas'); cv.width = Math.round(bm.width * sc); cv.height = Math.round(bm.height * sc); cv.getContext('2d').drawImage(bm, 0, 0, cv.width, cv.height); return (await new Promise(r => cv.toBlob(r, 'image/jpeg', .82))) || f; } catch (e) { return f; }
+}
+async function up(f, kind) {
+  if (f.size > 50 * 1048576) { toast('கோப்பு 50MB-க்கு மேல் உள்ளது. சிறியதைத் தேர்ந்தெடுங்கள்.'); return null; }
+  const b = kind === 'img' ? await shrink(f) : f, type = b.type || f.type || 'application/octet-stream';
+  const ext = b !== f ? 'jpg' : f.name ? (f.name.split('.').pop() || 'bin').slice(0, 5).toLowerCase() : type.includes('mp4') ? 'm4a' : 'webm';
+  const path = me + '/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.' + ext;
+  const { error } = await sb.storage.from('media').upload(path, b, { contentType: type });
+  if (error) { toast('ஏற்ற முடியவில்லை: ' + error.message); return null; }
+  return path;
+}
+const cache = {};
+async function sign(p) { if (cache[p]) return cache[p]; const { data } = await sb.storage.from('media').createSignedUrl(p, 3600); return (cache[p] = data && data.signedUrl); }
+
+function mediaEl(x) {
+  const k = x.media_type; if (!k) return null;
+  if (k === 'loc') { if (!isFinite(x.lat) || !isFinite(x.lng)) return null; const a = el('a', 'ml', 'இடம் பகிரப்பட்டது · வரைபடத்தில் பார்'); a.href = 'https://www.google.com/maps?q=' + Number(x.lat) + ',' + Number(x.lng); a.target = '_blank'; a.rel = 'noopener'; return a; }
+  if (!x.media_url) return null; let m;
+  if (k === 'file') { m = el('a', 'ml', 'கோப்பு: ' + (x.media_name || 'திறக்க')); m.target = '_blank'; m.rel = 'noopener'; sign(x.media_url).then(u => { if (u) m.href = u; }); return m; }
+  if (k === 'video') { m = el('video'); m.controls = true; m.preload = 'metadata'; m.playsInline = true; }
+  else if (k === 'audio' || k === 'voice') { m = el('audio'); m.controls = true; m.style.width = '100%'; }
+  else { m = el('img'); m.alt = ''; }
+  m.style.cssText += ';max-width:100%;border-radius:10px;margin-top:6px'; sign(x.media_url).then(u => { if (u) m.src = u; }); return m;
+}
+function linkify(t) { const d = el('div'); String(t).split(/(https?:\/\/[^\s]+)/).forEach((q, i) => { if (i % 2) { const a = el('a', '', q); a.href = q; a.target = '_blank'; a.rel = 'noopener'; d.append(a); } else d.append(document.createTextNode(q)); }); return d; }
+function bubble(x) {
+  const own = mine(x), b = el('div', 'b' + (own ? ' me' : ''));
+  if (!own) { const n = el('div', 'who', nm(x.user_id)); n.style.color = col(x.user_id); b.append(n); }
+  const m = mediaEl(x); if (m) b.append(m);
+  if (x.media_type === 'voice') b.append(el('div', 't', 'குரல் செய்தி · ' + fmt(x.dur || 0)));
+  if (x.body) b.append(linkify(x.body));
+  b.append(el('div', 't', tm(x.created_at))); return b;
+}
+function card(x) {
+  const c = el('div', 'card'), d = el('div'); d.append(el('div', 'who', nm(x.user_id))); if (x.body) d.append(linkify(x.body)); const m = mediaEl(x); if (m) d.append(m);
+  const f = el('div', 't', dt(x.created_at));
+  if (mine(x)) { const r = el('button', 'alt', 'நீக்கு'); r.style.cssText = 'min-height:32px;margin-left:10px;font-size:12px;padding:0 10px'; r.onclick = async () => { const { error } = await sb.from('posts').delete().eq('id', x.id); if (error) return toast('நீக்க முடியவில்லை'); D.posts = D.posts.filter(y => y.id !== x.id); list(); }; f.append(r); }
+  d.append(f); c.append(avatar(x.user_id), d); return c;
+}
+function eventsList(v) {
+  const ev = D.events.slice().sort((a, b) => (a.starts_at || '').localeCompare(b.starts_at || ''));
+  ev.forEach(x => { const g = D.rsvps.filter(r => r.event_id === x.id).map(r => r.user_id), on = g.includes(me), c = el('div', 'card'), d = el('div'), r = el('button', on ? 'alt' : 'go', on ? 'வர இயலாது' : 'வருகிறேன்');
+    r.onclick = async () => { const { error } = await (on ? sb.from('rsvps').delete().eq('event_id', x.id).eq('user_id', me) : sb.from('rsvps').insert({ event_id: x.id })); if (error) return toast(error.message); await loadEvents(); list(); };
+    d.append(el('div', 'who', x.title), el('div', 't', [x.starts_at ? dt(x.starts_at) : '', x.place, 'உருவாக்கியவர்: ' + nm(x.user_id)].filter(Boolean).join(' · ')), el('div', 't', g.length + ' பேர்: ' + g.map(nm).join(', ')), r); c.append(avatar(x.user_id), d); v.append(c); });
+  if (!ev.length) v.append(el('div', 'note', 'இன்னும் நிகழ்வுகள் இல்லை. கீழே உருவாக்குங்கள்.'));
+}
+function list() {
+  const v = $('#v'); v.replaceChildren();
+  if (tab === 'msg') { v.append(el('div', 'note', 'இந்த வட்டத்தில் உள்ள அனைவரும் இந்த உரையாடலைப் பார்க்கலாம்.')); let d = ''; D.posts.filter(x => x.kind === 'msg').slice().reverse().forEach(x => { const k = day(x.created_at); if (k !== d) { d = k; const s = el('div', 'sep'); s.append(el('span', '', k)); v.append(s); } v.append(bubble(x)); }); v.scrollTop = v.scrollHeight; return; }
+  if (tab === 'events') return eventsList(v);
+  let items = D.posts.filter(x => x.kind === tab); if (tab === 'status') { const lim = Date.now() - 864e5; items = items.filter(x => new Date(x.created_at).getTime() > lim); }
+  items.forEach(x => v.append(card(x))); if (!items.length) v.append(el('div', 'note', 'இன்னும் எதுவும் இல்லை. முதலில் நீங்கள் தொடங்குங்கள்.'));
+}
+
+async function startRec() { try { const s = await navigator.mediaDevices.getUserMedia({ audio: true }), mr = new MediaRecorder(s); chunks = []; mr.ondataavailable = e => chunks.push(e.data); mr.start(); rec = { mr, s }; t0 = Date.now(); } catch (e) { toast('மைக் கிடைக்கவில்லை: ' + e.name); } }
+function stopRec(send) { const { mr, s } = rec; rec = null; mr.onstop = async () => { s.getTracks().forEach(t => t.stop()); if (!send) return; const p = await up(new Blob(chunks, { type: mr.mimeType || 'audio/webm' }), 'voice'); if (p) post('msg', { media_type: 'voice', media_url: p, dur: Math.round((Date.now() - t0) / 1000) }); }; mr.stop(); }
+const TABS = [['msg', 'உறவுகள்'], ['status', 'Status'], ['feed', 'Feed'], ['events', 'நிகழ்வு']], bar = $('#n');
+TABS.forEach(([k, l]) => { const b = el('button', '', l); b.dataset.k = k; b.onclick = () => { tab = k; draw(); }; bar.append(b); });
+const field = (ph, type) => { const i = el('input'); i.placeholder = ph; i.setAttribute('aria-label', ph); if (type) i.type = type; return i; };
+function picker(label, accept, cb) { const b = el('button', 'alt', label), f = el('input'); f.type = 'file'; f.accept = accept; f.hidden = true; f.onchange = () => { const x = f.files[0]; f.value = ''; if (x) cb(x); }; b.onclick = () => f.click(); return [b, f]; }
+const FILES = '.pdf,.csv,.txt,.md,.json,.doc,.docx,.xls,.xlsx,application/pdf';
+function locate(cb) { navigator.geolocation ? navigator.geolocation.getCurrentPosition(p => cb(p.coords.latitude, p.coords.longitude), e => toast('இடம் கிடைக்கவில்லை (' + e.code + '). அனுமதி கொடுங்கள்.')) : toast('இடம் ஆதரவு இல்லை'); }
+function chatBar(c) {
+  if (rec) { const tt = el('span'), x = el('button', 'alt', 'ரத்து'), s = el('button', 'go', 'அனுப்பு'), tick = () => { tt.textContent = '● ' + fmt((Date.now() - t0) / 1000); }; tick(); clearInterval(tmr); tmr = setInterval(() => tt.isConnected ? tick() : clearInterval(tmr), 500);
+    x.onclick = () => { stopRec(false); draw(); }; s.onclick = () => { stopRec(true); draw(); }; const r = el('div', 'rec'); r.append(tt, x, s); c.append(r); return; }
+  const menu = el('div', 'menu'); menu.hidden = true;
+  const send1 = (kind, label, accept) => picker(label, accept, async f => { menu.hidden = true; const k = kind === 'img' && f.type.startsWith('video') ? 'video' : kind, p = await up(f, k); if (p) post('msg', { media_type: k, media_url: p, media_name: f.name }); });
+  const [pb, pf] = send1('img', 'படம் / வீடியோ', 'image/*,video/*'), [ab, af] = send1('audio', 'இசை', 'audio/*'), [fb, ff] = send1('file', 'கோப்பு', FILES);
+  const lb = el('button', 'alt', 'இடம்'); lb.onclick = () => { menu.hidden = true; locate((lat, lng) => post('msg', { media_type: 'loc', lat, lng })); };
+  menu.append(pb, pf, ab, af, fb, ff, lb);
+  const cl = ic('clip', 'q'); cl.setAttribute('aria-label', 'இணைப்பு'); cl.onclick = () => { menu.hidden = !menu.hidden; };
+  const i = field('செய்தி'), mb = ic('mic'); mb.setAttribute('aria-label', 'குரல் / அனுப்பு');
+  const send = () => { const t = i.value.trim(); if (t) { post('msg', { body: t }); i.value = ''; i.oninput(); } };
+  i.oninput = () => { const s = i.value.trim(); mb.firstChild.innerHTML = ICON[s ? 'send' : 'mic']; mb.dataset.m = s ? 's' : 'm'; };
+  i.onkeydown = e => { if (e.key === 'Enter') send(); };
+  mb.dataset.m = 'm'; mb.onclick = async () => { if (mb.dataset.m === 's') send(); else { await startRec(); if (rec) draw(); } };
+  c.append(menu, cl, i, mb);
+}
+function mediaBar(c, kind, ph, btn, multi) {
+  let m = null; const t = multi ? el('textarea') : field(ph); if (multi) { t.placeholder = ph; t.setAttribute('aria-label', ph); }
+  const row = el('div'); row.style.cssText = 'display:flex;gap:6px;width:100%;flex-wrap:wrap';
+  const mk = (l, acc, k) => { const [b, f] = picker(l, acc, async x => { b.textContent = 'ஏற்றுகிறது…'; const p = await up(x, k); if (p) { m = { media_type: k, media_url: p, media_name: x.name }; b.textContent = l + ' ✓'; } else b.textContent = l; }); row.append(b, f); };
+  mk('படம்', 'image/*', 'img'); mk('வீடியோ', 'video/*', 'video'); mk('இசை', 'audio/*', 'audio'); mk('கோப்பு', FILES, 'file');
+  const lb = el('button', 'alt', 'இடம்'); lb.onclick = () => locate((lat, lng) => { m = { media_type: 'loc', lat, lng }; lb.textContent = 'இடம் ✓'; }); row.append(lb);
+  const g = el('button', 'go', btn); g.onclick = () => { if (t.value.trim() || m) { post(kind, { body: t.value.trim() || null, ...(m || {}) }); t.value = ''; m = null; last = ''; draw(); } };
+  row.append(g); c.append(t, row);
+}
+function composer() {
+  const c = $('#c'); c.replaceChildren();
+  if (tab === 'msg') return chatBar(c);
+  if (tab === 'status') return mediaBar(c, 'status', 'உங்கள் status (24 மணி நேரம்)', 'சேர்', false);
+  if (tab === 'feed') return mediaBar(c, 'feed', 'புதிய பதிவு: செய்தி, படம், வீடியோ, இசை…', 'பதிவிடு', true);
+  const a = field('நிகழ்வு பெயர்'), d = field('தேதி & நேரம்', 'datetime-local'), p = field('இடம்'), g = el('button', 'go', 'உருவாக்கு');
+  g.onclick = async () => { if (!a.value.trim()) return; const { data, error } = await sb.from('events').insert({ title: a.value.trim(), starts_at: d.value || null, place: p.value.trim() || null }).select().single(); if (error) return toast(error.message); await sb.from('rsvps').insert({ event_id: data.id }); a.value = p.value = d.value = ''; await loadEvents(); list(); };
+  c.append(a, d, p, g);
+}
+function draw() {
+  if (entered && !document.hidden) unread[tab] = 0;
+  bar.querySelectorAll('button').forEach(b => { const k = b.dataset.k; b.classList.toggle('on', k === tab); b.textContent = TABS.find(t => t[0] === k)[1] + (unread[k] ? ' (' + unread[k] + ')' : ''); });
+  $('#ht').textContent = TABS.find(t => t[0] === tab)[1];
+  if (!entered) return;
+  const key = tab + (rec ? 'r' : ''); if (key !== last) { composer(); last = key; }
+  list();
+}
+function notify(k, x) {
+  if (entered && tab === k && !document.hidden) return;
+  const T = { img: 'படம் அனுப்பினார்', video: 'வீடியோ அனுப்பினார்', audio: 'இசை அனுப்பினார்', voice: 'குரல் செய்தி', file: 'கோப்பு அனுப்பினார்', loc: 'இடம் பகிர்ந்தார்' };
+  const msg = nm(x.user_id) + ': ' + (x.body || T[x.media_type] || (k === 'status' ? 'புதிய status' : k === 'feed' ? 'புதிய பதிவு' : 'செய்தி')).slice(0, 80);
+  unread[k]++; toast(msg); beep(); try { navigator.vibrate && navigator.vibrate(120); if (window.Notification && Notification.permission === 'granted') new Notification('யாதுமாகி', { body: msg }); } catch (e) {} draw();
+}
+function subscribe() {
+  if (subscribed) return; subscribed = true;
+  const on = (table, fn) => ({ event: '*', schema: 'public', table, fn });
+  sb.channel('yaadhumaagi')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'posts' }, p => {
+      if (p.eventType === 'INSERT') { const x = p.new; if (D.posts.some(y => y.id === x.id)) return; D.posts.unshift(x); if (!names[x.user_id]) loadMembers().then(list); if (!mine(x)) notify(x.kind, x); }
+      else if (p.eventType === 'DELETE') D.posts = D.posts.filter(y => y.id !== p.old.id);
+      list(); })
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'events' }, () => loadEvents().then(() => { if (tab === 'events') list(); }))
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'rsvps' }, () => loadEvents().then(() => { if (tab === 'events') list(); }))
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'members' }, () => loadMembers().then(list))
+    .subscribe();
+}
+async function go() { eb.disabled = true; await Promise.all([loadPosts(), loadEvents()]); entered = true; $('#w').style.display = 'none'; $('#app').style.display = 'flex'; last = ''; subscribe(); draw(); eb.disabled = false; }
+async function enter() {
+  if (me && names[me]) return go();
+  const nick = nk.value.trim(), pw = pwi.value, code = iv.value.trim();
+  if (!nick || pw.length < 6) return toast('புனைப்பெயரும், 6 எழுத்துக்குக் குறையாத கடவுச்சொல்லும் வேண்டும்.');
+  eb.disabled = true;
+  try {
+    const h = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(nick.toLowerCase())))].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 40), email = 'u' + h + '@yaadhumaagi.app';
+    let r = await sb.auth.signInWithPassword({ email, password: pw });
+    if (r.error) { if (!code) return toast('கடவுச்சொல் தவறு, அல்லது புதியவர் என்றால் அழைப்புக் குறியீட்டை உள்ளிடுங்கள்.'); r = await sb.auth.signUp({ email, password: pw }); if (r.error) return toast('உள்நுழைவு பிழை: ' + r.error.message); }
+    if (!r.data.session) return toast('Supabase-ல் "Confirm email" இயக்கத்தில் உள்ளது. அதை அணைக்கவும் (setup படி 2).');
+    me = r.data.user.id;
+    if (code) { const { error } = await sb.rpc('join_circle', { code, nick }); if (error) { await sb.auth.signOut(); me = null; return toast('அழைப்புக் குறியீடு தவறு.'); } }
+    await loadMembers(); if (!names[me]) { me = null; return toast('இந்தக் கணக்கு வட்டத்தில் இல்லை. அழைப்புக் குறியீட்டை உள்ளிடுங்கள்.'); }
+    await go();
+  } catch (e) { toast('பிழை: ' + e.message); } finally { eb.disabled = false; }
+}
+eb.onclick = enter;
+$('#bn').onclick = async () => { try { if (window.Notification && Notification.permission === 'default') await Notification.requestPermission(); } catch (e) {} beep(); toast('அறிவிப்பு இயக்கப்பட்டது. செயலி திறந்திருக்கும்போது ஒலி, அதிர்வு, அறிவிப்பு வரும்.'); };
+$('#bs').onclick = async () => { const l = location.origin + location.pathname + '#u=' + encodeURIComponent(SUPABASE_URL) + '&k=' + encodeURIComponent(SUPABASE_KEY); try { await navigator.clipboard.writeText(l); toast('இணைப்பு நகலெடுக்கப்பட்டது. நம்பகமானவர்களுக்கு அனுப்புங்கள். அழைப்புக் குறியீட்டைத் தனியாகச் சொல்லுங்கள்.'); } catch (e) { prompt('இந்த இணைப்பை நகலெடுக்கவும்', l); } };
+$('#bo').onclick = async () => { await sb.auth.signOut(); location.reload(); };
+document.addEventListener('visibilitychange', () => { if (!document.hidden && entered) draw(); });
+window.addEventListener('error', e => toast('பிழை: ' + e.message));
+const { data: { session } } = await sb.auth.getSession();
+if (session) { me = session.user.id; await loadMembers(); if (!names[me]) me = null; }
+if (me) { nk.hidden = pwi.hidden = iv.hidden = true; }
+eb.disabled = false; eb.textContent = 'நுழை';
+})();
+</script>
+</body>
+</html>
